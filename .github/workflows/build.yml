@@ -1,4 +1,4 @@
-name: Minimal ZMK Build Test
+name: Minimal ZMK Build Test v2
 
 on: [push, pull_request, workflow_dispatch]
 
@@ -6,8 +6,4 @@ jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
     secrets: inherit
-    # NU adăugăm niciun bloc 'with:' sau lăsăm un 'with: {}' gol.
-    # Acest lucru forțează workflow-ul reutilizabil să folosească valorile implicite
-    # pentru TOATE inputurile sale, inclusiv pentru 'matrix'.
-    # Poți adăuga un with gol dacă preferi:
-    # with: {}
+    with: {} # Adaugă un bloc 'with' explicit, dar gol
