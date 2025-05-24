@@ -4,28 +4,8 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    # Apelăm direct workflow-ul reutilizabil ZMK
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-    secrets: inherit # Permite workflow-ului ZMK să acceseze secrete, dacă e necesar
+    secrets: inherit
     with:
-      # Aici pasăm întreaga listă de combinații placă/shield ca un string JSON
-      # către inputul 'matrix' definit în build-user-config.yml
-    # ... (liniile de la începutul fișierului: name, on, jobs, build, uses, secrets) ...
-    #with:
-      # Aici era versiunea pe mai multe linii:
-      # matrix: |
-      #   [
-      #     {
-      #       "board": "nice_nano_v2",
-      #       "shield": "ciupitu_stefan"
-      #     }
-      #   ]
-
-      # VEI ÎNLOCUI CELE 6 LINII DE MAI SUS (matrix: | și JSON-ul indentat)
-      # CU URMĂTOAREA LINIE UNICĂ:
-      matrix: '[{"board":"nice_nano_v2","shield":"ciupitu_stefan"}]'
-
-      # Dacă ai și alte inputuri sub 'with:', cum ar fi 'west_args:', ele rămân neschimbate.
-      # De exemplu:
-      # west_args: "-p"
-# ... (restul fișierului, dacă există) ...
+      matrix: '[{"board":"nice_nano_v2","shield":"ciupitu_stefan"}]' # JSON-ul pe o singură linie
+      # west_args: "-p" # Exemplu de alt input, dacă îl ai
