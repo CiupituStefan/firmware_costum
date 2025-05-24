@@ -1,4 +1,4 @@
-name: Build ZMK firmware
+name: Minimal ZMK Build Test
 
 on: [push, pull_request, workflow_dispatch]
 
@@ -6,6 +6,8 @@ jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
     secrets: inherit
-    with:
-      matrix: '[{"board":"nice_nano_v2","shield":"ciupitu_stefan"}]' # JSON-ul pe o singură linie
-      # west_args: "-p" # Exemplu de alt input, dacă îl ai
+    # NU adăugăm niciun bloc 'with:' sau lăsăm un 'with: {}' gol.
+    # Acest lucru forțează workflow-ul reutilizabil să folosească valorile implicite
+    # pentru TOATE inputurile sale, inclusiv pentru 'matrix'.
+    # Poți adăuga un with gol dacă preferi:
+    # with: {}
