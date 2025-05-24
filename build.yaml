@@ -18,3 +18,17 @@
 #     artifact-name: corne_left_with_studio
 #
 ---
+
+# În .github/workflows/build.yaml
+# ... alte configurări ...
+jobs:
+  build:
+    # ...
+    strategy:
+      matrix:
+        include:
+          # - board: nice_nano_v2 # Exemplu de altă tastatură
+          #   shield: settings_reset
+          - board: nice_nano_v2 # Sau ce placă nRF52840 Pro Micro folosești (ex: 'nice_nano' dacă e v1)
+            shield: ciupitu_stefan # Numele shield-ului tău (cel mic, din Kconfig.shield)
+# ... restul fișierului ...

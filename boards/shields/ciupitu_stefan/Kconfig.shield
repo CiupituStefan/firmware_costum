@@ -1,0 +1,6 @@
+# Numele shield-ului tău aici, fără spații după virgulă sau în nume!
+# Folosește litere mici și underscore (_) în loc de spații pentru 'numele_mic_al_shieldului_tau'.
+# Pentru 'NUMELE_MARE_AL_SHIELDULUI_TAU', folosește litere mari și underscore.
+
+config SHIELD_CIUPITU_STEFAN
+    def_bool $(shields_list_contains,ciupitu_stefan)

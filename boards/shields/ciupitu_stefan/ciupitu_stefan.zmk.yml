@@ -1,0 +1,12 @@
+file_format: "1"
+id: ciupitu_stefan
+name: "Licenta2025"
+type: shield
+url: "https://github.com/CiupituStefan/firmware_costum" # URL-ul repository-ului tău
+requires:
+  - nice_nano # Identificator comun în ZMK pentru plăcile nRF52840 în format Pro Micro.
+              # Dacă folosești o variantă specifică (ex: nice!nano v2), ajustează corespunzător.
+exposes: []   # Acest shield nu expune alte interfețe pentru module adiționale (ex. OLED, encoder)
+features:
+  - keys      # Funcționalitatea principală este cea de tastatură (detectarea apăsărilor de taste)
+# siblings: [] # Nu este necesar, deoarece tastatura este unibody (nu split)

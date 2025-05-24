@@ -1,0 +1,57 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/hid_usage.h> // Pentru HID Usage ID-uri dacă e necesar (nu în acest exemplu de bază)
+#include <dt-bindings/zmk/hid_usage_pages.h> // Pentru HID Usage Pages (nu în acest exemplu de bază)
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            // Total 74 de taste, corespunzând ordinii din `map` din fișierul .overlay
+            // Comentariile indică tasta fizică aproximativă pentru fiecare cod.
+            bindings = <
+                // Rândul 0 (Fizic: Rândul de sus - Esc, F1-F12) - 13 taste
+                // Pozițiile 0-12 în keymap
+                &kp ESC     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12
+
+                // Rândul 1 (Fizic: Rândul cifrelor - ~, 1-0, -, =, Backspace) - 14 taste
+                // Pozițiile 13-26 în keymap
+                &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp MINUS   &kp EQUAL   &kp BSPC
+
+                // Rândul 2 (Fizic: Rândul QWERTY - Tab, Q-P, [, ], \) - 14 taste
+                // Pozițiile 27-40 în keymap
+                &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T       &kp Y       &kp U       &kp I       &kp O       &kp P       &kp LBKT    &kp RBKT    &kp BSLH
+
+                // Rândul 3 (Fizic: Rândul ASDF - CapsLock, A-L, ;, ', Enter) - 13 taste
+                // Pozițiile 41-53 în keymap
+                &kp CAPS    &kp A       &kp S       &kp D       &kp F       &kp G       &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp SQT     &kp RET
+
+                // Rândul 4 (Fizic: Rândul ZXCV - LShift, Z-/, RShift) - 12 taste
+                // Pozițiile 54-65 în keymap
+                &kp LSHFT   &kp Z       &kp X       &kp C       &kp V       &kp B       &kp N       &kp M       &kp COMMA   &kp DOT     &kp SLASH   &kp RSHFT
+
+                // Rândul 5 (Fizic: Rândul de jos - LCtrl, LWin, LAlt, Space, RAlt, RWin, Menu, RCtrl) - 8 taste
+                // Pozițiile 66-73 în keymap
+                &kp LCTRL   &kp LGUI    &kp LALT    &kp SPACE   &kp RALT    &kp RGUI    &kp K_APP   &kp RCTRL
+            >;
+
+            // Dacă ai senzori (ex. rotițe encoder), binding-urile lor ar veni aici
+            // sensor-bindings = <...>;
+        };
+
+        // Poți adăuga mai multe straturi (layers) aici, de exemplu:
+        /*
+        fn_layer { // Un strat activat de o tastă Fn
+            bindings = <
+                // Rândul 0
+                &trans    &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12
+                // Rândul 1 - poate conține taste media, control luminozitate etc.
+                &trans    &kp C_BRI_DN &kp C_BRI_UP &kp C_VOL_DN &kp C_VOL_UP &kp C_MUTE  &trans    &trans    &trans    &trans    &trans    &trans    &trans    &trans
+                // ... și așa mai departe pentru restul tastelor.
+                // &trans înseamnă "transparent" - tasta va avea același comportament ca pe stratul de dedesubt (default_layer)
+            >;
+        };
+        */
+    };
+};

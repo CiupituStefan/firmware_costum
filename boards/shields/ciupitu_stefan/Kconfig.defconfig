@@ -1,0 +1,14 @@
+# Verifică dacă semnalizatorul definit în Kconfig.shield este activ
+if SHIELD_CIUPITU_STEFAN
+
+# Setează numele implicit al tastaturii
+# ATENȚIE: Numele trebuie să aibă mai puțin de 16 caractere!
+config ZMK_KEYBOARD_NAME
+    default "Licenta2025"
+
+# Aici poți adăuga și alte configurări implicite specifice shield-ului tău, dacă e necesar.
+# De exemplu:
+# config ZMK_SLEEP
+#    default y
+
+endif
