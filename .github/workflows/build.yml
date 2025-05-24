@@ -4,18 +4,31 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
+    # Aici definim strategia de build, inclusiv matricea de combinații
+    strategy:
+      fail-fast: false # Recomandat: dacă un build din matrice eșuează, celelalte continuă
+      matrix:
+        # 'include' aici este parte din 'strategy.matrix' a job-ului tău, NU un input pentru workflow-ul ZMK
+        include:
+          - board: nice_nano_v2 # Sau "nice_nano" sau identificatorul plăcii tale nRF52840 Pro Micro
+            shield: ciupitu_stefan
+          # Poți adăuga și alte combinații aici, dacă ai mai multe tastaturi sau configurații
+          # Exemplu:
+          # - board: alt_board_id
+          #   shield: alt_shield_id
+          # - board: nice_nano_v2
+          #   shield: settings_reset # Un build pentru resetarea setărilor
+
+    # Acum apelăm workflow-ul reutilizabil ZMK
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-    secrets: inherit # Această linie permite workflow-ului ZMK să acceseze secrete, dacă e necesar
+    secrets: inherit
     with:
-      # Aici specifici ce combinații de placă (board) și shield vrei să construiești.
-      # Formatul este un string JSON.
-      include: |
-        [
-          {
-            "board": "nice_nano_v2", # Sau "nice_nano" dacă placa ta este v1 sau un alt nRF52840 Pro Micro compatibil.
-                                     # Verifică identificatorul ZMK corect pentru placa ta exactă.
-            "shield": "ciupitu_stefan"
-          }
-        ]
-      # Dacă ai nevoie de argumente speciale pentru comanda west, le poți adăuga aici, de exemplu:
-      # west_args: "-p" # Curăță build-ul anterior înainte de a începe unul nou
+      # Aici pasăm elementele din matricea de mai sus către inputurile definite
+      # ale workflow-ului ZMK reutilizabil.
+      # `${{ matrix.board }}` va lua valoarea 'board' din fiecare element al matricei.
+      # `${{ matrix.shield }}` va lua valoarea 'shield' din fiecare element al matricei.
+      board: ${{ matrix.board }}
+      shield: ${{ matrix.shield }}
+      # Poți adăuga și alte inputuri aici dacă sunt definite de build-user-config.yml
+      # și vrei să le folosești, de exemplu:
+      # west_args: "-p" # Adaugă "-p" (prune) la comanda west build
