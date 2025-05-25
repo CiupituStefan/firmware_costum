@@ -1,6 +1,9 @@
-name: Build ZMK firmware
+name: Minimal ZMK Build Test v2
+
 on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    secrets: inherit
+    with: {} # Adaugă un bloc 'with' explicit, dar gol

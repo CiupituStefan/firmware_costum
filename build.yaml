@@ -21,11 +21,7 @@
 
 # În .github/workflows/build.yaml
 # ... alte configurări ...
-jobs:
-  build:
-    # ...
-    strategy:
-      matrix:
+
         include:
           # - board: nice_nano_v2 # Exemplu de altă tastatură
           #   shield: settings_reset
