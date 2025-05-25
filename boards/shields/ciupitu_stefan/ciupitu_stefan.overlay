@@ -5,7 +5,7 @@
     chosen {
         zmk,kscan = &kscan_ciupitu_stefan;
         zmk,physical-layout = &layout_ciupitu_stefan;
-    }
+    };
 
     kscan_ciupitu_stefan: kscan {
         compatible = "zmk,kscan-gpio-matrix";
