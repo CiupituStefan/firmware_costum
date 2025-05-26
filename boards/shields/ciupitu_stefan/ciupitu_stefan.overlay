@@ -60,5 +60,5 @@
         display-name = "Default";
         kscan = <&kscan_ciupitu_stefan>;
         transform = <&transform_ciupitu_stefan>;
-    }
+    };
 };
