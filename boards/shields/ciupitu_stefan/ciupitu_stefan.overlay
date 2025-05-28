@@ -13,30 +13,30 @@
         wakeup-source;
 
         col-gpios
-            = <&gpio0 17 GPIO_ACTIVE_HIGH>
-            , <&gpio0 20 GPIO_ACTIVE_HIGH>
-            , <&gpio0 22 GPIO_ACTIVE_HIGH>
-            , <&gpio0 24 GPIO_ACTIVE_HIGH>
-            , <&gpio0 29 GPIO_ACTIVE_HIGH>
-            , <&gpio0 31 GPIO_ACTIVE_HIGH>
-            , <&gpio1 0 GPIO_ACTIVE_HIGH>
-            , <&gpio1 1 GPIO_ACTIVE_HIGH>
-            , <&gpio1 2 GPIO_ACTIVE_HIGH>
-            , <&gpio1 4 GPIO_ACTIVE_HIGH>
-            , <&gpio1 6 GPIO_ACTIVE_HIGH>
-            , <&gpio1 7 GPIO_ACTIVE_HIGH>
-            , <&gpio1 11 GPIO_ACTIVE_HIGH>
-            , <&gpio1 13 GPIO_ACTIVE_HIGH>
-            , <&gpio1 15 GPIO_ACTIVE_HIGH>
+            = <&gpio0 17 GPIO_ACTIVE_HIGH> //017 
+            , <&gpio0 20 GPIO_ACTIVE_HIGH> //020
+            , <&gpio0 22 GPIO_ACTIVE_HIGH> //022
+            , <&gpio0 24 GPIO_ACTIVE_HIGH> //024
+            , <&gpio0 29 GPIO_ACTIVE_HIGH> //029
+            , <&gpio0 31 GPIO_ACTIVE_HIGH> //031
+            , <&gpio1 0 GPIO_ACTIVE_HIGH>  //100
+            , <&gpio1 1 GPIO_ACTIVE_HIGH>  //101
+            , <&gpio1 2 GPIO_ACTIVE_HIGH>  //102
+            , <&gpio1 4 GPIO_ACTIVE_HIGH>  //104
+            , <&gpio1 6 GPIO_ACTIVE_HIGH>  //106
+            , <&gpio1 7 GPIO_ACTIVE_HIGH>  //107
+            , <&gpio1 11 GPIO_ACTIVE_HIGH> //111
+            , <&gpio1 13 GPIO_ACTIVE_HIGH>  //113
+            , <&gpio1 15 GPIO_ACTIVE_HIGH> //115
             ;
 
         row-gpios
-            = <&gpio0 2 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>
-            , <&gpio0 6 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>
-            , <&gpio0 8 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>
-            , <&gpio0 9 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>
-            , <&gpio0 10 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>
-            , <&gpio0 11 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>
+            = <&gpio0 2 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>  //002 F Line
+            , <&gpio0 6 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>  //006 1234
+            , <&gpio0 8 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>  //008 qwer
+            , <&gpio0 9 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>  //009 asdf
+            , <&gpio0 10 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)> //010  zxc
+            , <&gpio0 11 (GPIO_PULL_DOWN | GPIO_ACTIVE_HIGH)>  //011 ctr win alt
             ;
     };
 

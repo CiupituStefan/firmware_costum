@@ -1,3 +1,4 @@
+#include <dt-bindings/zmk/outputs.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/hid_usage.h> // Pentru HID Usage ID-uri dacă e necesar (nu în acest exemplu de bază)
