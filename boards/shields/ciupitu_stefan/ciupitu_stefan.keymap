@@ -4,16 +4,27 @@
  * SPDX-License-Identifier: MIT
  */
 
-// Includem DOAR headerele standard și obligatorii pentru un keymap.
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/consumers.h>
+#include <dt-bindings/zmk/outputs.h>
 
 // Definirea numelor straturilor pentru claritate
 #define DEFAULT 0
 #define FN_LAYER 1
 
 / {
-    // Am eliminat complet secțiunea "behaviors" pentru a rezolva eroarea de compilare.
+    // Comportament pentru a avea ';' la apăsare și ':' la ținut apăsat
+    behaviors {
+        hm_semi_colon: hm_semi_colon {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP_SEMI_COLON";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            bindings = <&kp &kp>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -27,8 +38,8 @@
                 &kp GRAVE    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5       &kp N6       &kp N7       &kp N8       &kp N9       &kp N0       &kp MINUS    &kp EQUAL    &kp BSPC
                 // Rândul 2: QWERTY
                 &kp TAB      &kp Q        &kp W        &kp E        &kp R        &kp T        &kp Y        &kp U        &kp I        &kp O        &kp P        &kp LBKT     &kp RBKT     &kp BSLH
-                // Rândul 3: Home Row (CU TASTA SEMICOLON SIMPLIFICATĂ)
-                &kp CAPS     &kp A        &kp S        &kp D        &kp F        &kp G        &kp H        &kp J        &kp K        &kp L      &kp SEMI     &kp SQT      &kp RET
+                // Rândul 3: Home Row
+                &kp CAPS     &kp A        &kp S        &kp D        &kp F        &kp G        &kp H        &kp J        &kp K        &kp L      &hm_semi_colon SEMI LS(SEMI) &kp SQT   &kp RET
                 // Rândul 4: Bottom Alpha Row
                 &kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp N        &kp M        &kp COMMA    &kp DOT      &kp FSLH     &kp RSHFT
                 // Rândul 5: Bottom Modifier Row (FN pe fosta tastă Menu)
