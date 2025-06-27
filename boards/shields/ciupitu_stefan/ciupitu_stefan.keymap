@@ -5,72 +5,57 @@
 #include <dt-bindings/zmk/hid_usage.h>      // Pentru HID Usage ID-uri (opțional)
 #include <dt-bindings/zmk/hid_usage_pages.h> // Pentru HID Usage Pages (opțional)
 
-// Definirea numelor straturilor pentru claritate
 #define DEFAULT 0
-#define FN_LAYER 1 // Noul nostru strat pentru funcții
+#define FN_LAYER 1
 
 / {
+    // Comportament pentru a avea ';' la apăsare și ':' la ținut apăsat
+    behaviors {
+        hm_semi_colon: hm_semi_colon {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP_SEMI_COLON";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            bindings = <&kp>, <&kp>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            label = "DEFAULT"; // Opțional, pentru identificare
+            label = "DEFAULT";
             bindings = <
-                // Rândul 0 (Fizic: Rândul de sus - Esc, F1-F12) - 13 taste
-                // Pozițiile 0-12
-                &kp ESC     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11     &kp F12
-
-                // Rândul 1 (Fizic: Rândul cifrelor - ~, 1-0, -, =, Backspace) - 14 taste
-                // Pozițiile 13-26
-                &kp GRAVE   &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp MINUS   &kp EQUAL   &kp BSPC
-
-                // Rândul 2 (Fizic: Rândul QWERTY - Tab, Q-P, [, ], \) - 14 taste
-                // Pozițiile 27-40
-                &kp TAB     &kp Q       &kp W       &kp E       &kp R       &kp T       &kp Y       &kp U       &kp I       &kp O       &kp P       &kp LBKT    &kp RBKT    &kp BSLH
-
-                // Rândul 3 (Fizic: Rândul ASDF - CapsLock, A-L, ;, ', Enter) - 13 taste
-                // Pozițiile 41-53
-                &kp CAPS    &kp A       &kp S       &kp D       &kp F       &kp G       &kp H       &kp J       &kp K       &kp L       &kp SEMI    &kp SQT     &kp RET
-
-                // Rândul 4 (Fizic: Rândul ZXCV - LShift, Z-/, RShift) - 12 taste
-                // Pozițiile 54-65. Tasta Z (poziția 55) devine FN_LAYER.
-                &kp LSHFT   &mo FN_LAYER &kp X       &kp C       &kp V       &kp B       &kp N       &kp M       &kp COMMA   &kp DOT     &kp SLASH   &kp RSHFT
-                         /* ^ Aici era &kp Z, acum este &mo FN_LAYER */
-
-                // Rândul 5 (Fizic: Rândul de jos - LCtrl, LWin, LAlt, Space, RAlt, RWin, Menu, RCtrl) - 8 taste
-                // Pozițiile 66-73
-                &kp LCTRL   &kp LGUI    &kp LALT    &kp SPACE   &kp RALT    &kp RGUI    &kp K_APP   &kp RCTRL
+                // Rândul 0: F-Keys
+                &kp ESC      &kp F1       &kp F2       &kp F3       &kp F4       &kp F5       &kp F6       &kp F7       &kp F8       &kp F9       &kp F10      &kp F11      &kp F12
+                // Rândul 1: Number Row
+                &kp GRAVE    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5       &kp N6       &kp N7       &kp N8       &kp N9       &kp N0       &kp MINUS    &kp EQUAL    &kp BSPC
+                // Rândul 2: QWERTY
+                &kp TAB      &kp Q        &kp W        &kp E        &kp R        &kp T        &kp Y        &kp U        &kp I        &kp O        &kp P        &kp LBKT     &kp RBKT     &kp BSLH
+                // Rândul 3: Home Row
+                &kp CAPS     &kp A        &kp S        &kp D        &kp F        &kp G        &kp H        &kp J        &kp K        &kp L      &hm_semi_colon SEMI LS(SEMI) &kp SQT   &kp RET
+                // Rândul 4: Bottom Alpha Row (Z este acum normal)
+                &kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp N        &kp M        &kp COMMA    &kp DOT      &kp FSLH     &kp RSHFT
+                // Rândul 5: Bottom Modifier Row (FN pe fosta tastă Menu)
+                &kp LCTRL    &kp LGUI     &kp LALT     &kp SPACE    &kp RALT     &kp RGUI     &mo FN_LAYER &kp RCTRL
             >;
-
-            // sensor-bindings = <...>; // Comentat dacă nu ai senzori
         };
 
         fn_layer {
-            label = "FN_LAYER"; // Opțional
+            label = "FN_LAYER";
             bindings = <
-                // Rândul 0 - Toate &trans (transparente)
-                // Pozițiile 0-12
-                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
-
-                // Rândul 1 - Tastele 1-5 pentru BT_SEL (Profiluri BT 0-4), restul &trans
-                // Pozițiile 13-26
-                &trans      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
-
-                // Rândul 2 - Q,W,E pentru Output Select, restul &trans
-                // Pozițiile 27-40
-                &trans      &out OUT_TOG &out OUT_BLE &out OUT_USB &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
-
-                // Rândul 3 - A,S,D pentru BT Prev/Next/Clear, restul &trans
-                // Pozițiile 41-53
-                &trans      &bt BT_PRV  &bt BT_NXT  &bt BT_CLR  &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
-
-                // Rândul 4 - Poziția tastei Z (care activează stratul) este &trans. Restul &trans.
-                // Pozițiile 54-65
-                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
-
-                // Rândul 5 - Toate &trans
-                // Pozițiile 66-73
-                &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                // Rândul 0: Funcții Media & Sistem
+                &trans   &kp C_BRI_DEC  &kp C_BRI_INC  &kp C_MIC_MUTE &kp DEL      &kp PSCRN     &kp C_WWW_HOME &kp C_SCAN_PREV_TRACK &kp C_PLAY_PAUSE &kp C_SCAN_NEXT_TRACK &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP
+                // Rândul 1: Control Conexiuni
+                &trans   &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4   &out OUT_TOG   &out OUT_BLE   &out OUT_USB   &bt BT_NXT     &bt BT_CLR     &trans       &trans       &trans
+                // Rândul 2: Transparent
+                &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans
+                // Rândul 3: Transparent
+                &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans
+                // Rândul 4: Transparent
+                &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans
+                // Rândul 5: Transparent (inclusiv poziția FN)
+                &trans       &trans       &trans       &trans       &trans       &trans       &trans       &trans
             >;
         };
     };
