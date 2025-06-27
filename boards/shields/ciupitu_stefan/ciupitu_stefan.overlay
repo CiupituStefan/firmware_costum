@@ -1,6 +1,10 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/consumers.h>
+#include <dt-bindings/zmk/outputs.h>
 
+// Aici urmează restul codului tău din .overlay (de ex: / { chosen { ... }; kscan { ... }; }; )
 / {
     chosen {
         zmk,kscan = &kscan_ciupitu_stefan;
