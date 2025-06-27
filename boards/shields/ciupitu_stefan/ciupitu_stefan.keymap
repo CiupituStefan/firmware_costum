@@ -20,7 +20,6 @@
             label = "HOLD_TAP_SEMI_COLON";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            // AICI A FOST EROAREA: am înlocuit virgula cu spațiu.
             bindings = <&kp &kp>;
         };
     };
@@ -49,8 +48,8 @@
         fn_layer {
             label = "FN_LAYER";
             bindings = <
-                // Rândul 0: Funcții Media & Sistem
-                &trans   &cp C_BRI_DEC  &cp C_BRI_INC  &cp C_MIC_MUTE &kp DEL      &kp PSCRN    &cp C_WWW_HOME &cp C_SCAN_PREV_TRACK &cp C_PLAY_PAUSE &cp C_SCAN_NEXT_TRACK &cp C_MUTE &cp C_VOL_DN &cp C_VOL_UP
+                // Rândul 0: Funcții Media & Sistem (CU "TASK VIEW" PE F3)
+                &trans   &cp C_BRI_DEC  &cp C_BRI_INC  &cp C_AC_DESKTOP_SHOW_ALL_WINDOWS &kp DEL      &kp PSCRN    &cp C_AL_WWW &cp C_PREVIOUS &cp C_PLAY_PAUSE &cp C_NEXT     &cp C_MUTE &cp C_VOL_DN &cp C_VOL_UP
                 // Rândul 1: Control Conexiuni
                 &trans   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &out OUT_TOG &out OUT_BLE   &out OUT_USB   &bt BT_NXT     &bt BT_CLR     &trans       &trans       &trans
                 // Rândul 2: Transparent
