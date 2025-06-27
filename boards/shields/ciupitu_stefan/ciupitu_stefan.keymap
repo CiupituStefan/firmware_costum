@@ -20,7 +20,8 @@
             label = "HOLD_TAP_SEMI_COLON";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            bindings = <&kp>, <&kp>;
+            // AICI A FOST EROAREA: am înlocuit virgula cu spațiu.
+            bindings = <&kp &kp>;
         };
     };
 
