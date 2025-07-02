@@ -33,7 +33,7 @@
                 // Rândul 3: Home Row
                 &kp CAPS     &kp A        &kp S        &kp D        &kp F        &kp G        &kp H        &kp J        &kp K        &kp L      &kp SEMI    &kp SQT     &kp RET
                 // Rândul 4: Bottom Alpha Row
-                &kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp N        &kp M        &kp COMMA    &kp DOT      &kp SLASH     &kp RSHFT
+                &kp LSHFT    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp N        &kp M        &kp DOT      &kp SLASH     &kp RSHFT
                 // Rândul 5: Bottom Modifier Row (FN pe fosta tastă Menu)
                 &kp LCTRL    &kp LGUI     &kp LALT     &kp SPACE    &kp RALT     &kp RGUI     &mo FN_LAYER &kp RCTRL
             >;
