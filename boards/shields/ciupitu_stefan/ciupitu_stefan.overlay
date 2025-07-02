@@ -14,14 +14,14 @@
 
         col-gpios
         
-             = <&gpio0 20 GPIO_ACTIVE_HIGH> //020x
-            , <&gpio0 22 GPIO_ACTIVE_HIGH> //022x
-            , <&gpio0 24 GPIO_ACTIVE_HIGH> //024x
-            , <&gpio1 0 GPIO_ACTIVE_HIGH> //100x
-            , <&gpio1 2 GPIO_ACTIVE_HIGH> //102x
-            , <&gpio1 4 GPIO_ACTIVE_HIGH> //104x
-            , <&gpio1 6 GPIO_ACTIVE_HIGH>  //106x
-            , <&gpio0 9 GPIO_ACTIVE_HIGH>  //009x                              
+             = <&gpio0 20 GPIO_ACTIVE_HIGH> //020
+            , <&gpio0 22 GPIO_ACTIVE_HIGH> //022
+            , <&gpio0 24 GPIO_ACTIVE_HIGH> //024
+            , <&gpio1 0 GPIO_ACTIVE_HIGH> //100
+            , <&gpio1 2 GPIO_ACTIVE_HIGH> //102
+            , <&gpio1 4 GPIO_ACTIVE_HIGH> //104
+            , <&gpio1 6 GPIO_ACTIVE_HIGH>  //106
+            , <&gpio0 9 GPIO_ACTIVE_HIGH>  //009                         
             , <&gpio0 10 GPIO_ACTIVE_HIGH>  //010
             , <&gpio0 11 GPIO_ACTIVE_HIGH>  //011
             , <&gpio1 13 GPIO_ACTIVE_HIGH>  //113

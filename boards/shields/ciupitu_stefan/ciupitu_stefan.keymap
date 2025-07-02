@@ -26,7 +26,7 @@
 
                 // Rândul 2 (Fizic: Rândul QWERTY - Tab, Q-P, [, ], \) - 14 taste
                 // Pozițiile 27-40
-                &kp TAB      &lt FN_LAYER Q       &kp W       &kp E       &kp R       &kp T       &kp Y       &kp U       &kp I       &kp O       &kp P       &kp LBKT    &kp RBKT    &kp BSLH
+                &kp TAB      &lt FN_LAYER Q      &kp W       &kp E       &kp R       &kp T       &kp Y       &kp U       &kp I       &kp O       &kp P       &kp LBKT    &kp RBKT    &kp BSLH
 
                 // Rândul 3 (Fizic: Rândul ASDF - CapsLock, A-L, ;, ', Enter) - 13 taste
                 // Pozițiile 41-53
@@ -58,7 +58,7 @@
 
                 // Rândul 2 - Q,W,E pentru Output Select, restul &trans
                 // Pozițiile 27-40
-                &trans      &out OUT_TOG &out OUT_BLE &out OUT_USB &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
+                &trans      &trans &out OUT_BLE &out OUT_USB &trans   &out OUT_TOG      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
 
                 // Rândul 3 - A,S,D pentru BT Prev/Next/Clear, restul &trans
                 // Pozițiile 41-53
